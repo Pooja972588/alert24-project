@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block news %}
+ <!--============= bollywood News Start ================-->
+ <section class="sport news">
+    <h1 class="text-center bg-danger text-light py-3">Sport News</h1>
+    <div class="containar">
+      <div class="row">
+        <div class="col-md-9 border-end border-3">
+           {% for news in allNews  %}
+            <div class="row my-5">
+                <div class="col-md-5">
+                  <img src="/media/{{ news.image }}" class="img-fluid" style='width: 90vw; height:30vh;'>
+                 </div>
+                   <div class="col-md-6">
+                       <h3>{{ news.title | truncatewords:15 }}</h3>
+                       <small class="text-danger">Published: {{news.date}}</small>
+                       <small class=" fw-bold">{{ news.category }}</small>
+                       <p>{{news.description | truncatewords:30 }}
+                      <a href="" class="btn btn-danger mt-2">Read More</a>
+                  </div>
+               </div>
+          {% endfor %}
+          </div>
+          <div class="col-md-3">
+            <h3 class=" text-center alert alert-danger">Top News</h3>
+            {% for news in topNews  %}
+            <a href="" class="link-danger">
+              <div class="row">
+                <div class="col-md-4">
+                  <img class='img-fluid' src="/media/{{news.image}}" alt="">
+                </div>
+                <div class="col-md-8">
+                  <p class="m-3">{{ news.title | truncatewords:5 }}</p>
+                </div>
+              </div>
+            </a>  
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+  </section>
+  <!--============= News End ================-->
+{% endblock news %}

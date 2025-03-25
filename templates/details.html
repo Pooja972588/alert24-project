@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+{% block news %}
+<section class="news">
+  <h1 class="text-center bg-danger text-light py-3">{{news.category}}</h1>
+  <div class="containar">
+    <div class="row">
+      <div class="col-md-9 border-end border-3">
+        <div class="row my-5">
+          <div class="col-md-5">
+            <img src="/media/{{ news.image }}" class="img-fluid" style='width: 90vw; height:30vh;'>
+           </div>
+             <div class="col-md-6">
+              <small class="text-danger">Published: {{news.date}}</small>
+                 <h3>{{ news.title }}</h3>
+                 <small class=" fw-bold">{{ news.category }}</small>
+                 <p>{{news.description }}</p>
+            </div>
+         </div>
+
+        </div>
+        <div class="col-md-3">
+          <h3 class="my-5 text-center alert alert-danger">Top News</h3>
+          {% for news in topNews  %}
+          <a href="" class="link-danger">
+            <div class="row">
+              <div class="col-md-4">
+                <img class='img-fluid' src="/media/{{news.image}}" alt="">
+              </div>
+              <div class="col-md-8">
+                <p class="m-3">{{ news.title | truncatewords:5 }}</p>
+              </div>
+            </div>
+          </a>  
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+</section>
+<!--============= News End ================-->
+
+{% endblock news %}
