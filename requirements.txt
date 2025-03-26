@@ -2,5 +2,3 @@ django
 pillow
 gunicorn
 whitenoise
-bootstrap5
-tinymce
